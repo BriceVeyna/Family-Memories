@@ -34,13 +34,6 @@ User.init(
         len: [8],
       },
     },
-    family_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: "family",
-          key: "id",
-        },
-      },
   },
   {
     hooks: {
