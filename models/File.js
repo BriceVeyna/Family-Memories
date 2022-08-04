@@ -30,6 +30,13 @@ File.init(
         key: "id",
       },
     },
+    family_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'family',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,

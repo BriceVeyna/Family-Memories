@@ -24,7 +24,7 @@ Comment.init(
         file_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'post',
+                model: 'file',
                 key: 'id',
             },
         },
