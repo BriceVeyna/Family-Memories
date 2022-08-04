@@ -1,9 +1,9 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-class Project extends Model {}
+class File extends Model {}
 
-Project.init(
+File.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -17,30 +17,26 @@ Project.init(
     },
     description: {
       type: DataTypes.STRING,
-    },
-    description: {
-        type: DataTypes.STRING,
-      },
-    date_created: {
-      type: DataTypes.DATE,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
+    },
+    url: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
-        key: 'id',
+        model: "user",
+        key: "id",
       },
     },
   },
   {
     sequelize,
-    timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: "file",
   }
 );
 
-module.exports = Project;
+module.exports = File;
