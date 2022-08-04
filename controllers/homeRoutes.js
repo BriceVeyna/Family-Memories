@@ -1,18 +1,17 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { File } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
   try {
-    const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
+    const fileData = await File.findAll({
       order: [['name', 'ASC']],
     });
 
-    const users = userData.map((project) => project.get({ plain: true }));
+    const files = fileData.map((file) => file.get({ plain: true }));
 
     res.render('homepage', {
-      users,
+      files,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
