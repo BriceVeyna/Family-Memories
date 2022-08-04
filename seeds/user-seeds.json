@@ -1,13 +1,16 @@
 [
     {
+        "family_id": 1,
         "username": "Brice",
-        "password": "password1"
+        "password": "password"
     },
     {
+        "family_id": 1,
         "username": "Chelsea",
         "password": "password"
     },
     {
+        "family_id": 1,
         "username": "Phil",
         "password": "password"
     }
