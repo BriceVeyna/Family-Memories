@@ -16,6 +16,13 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    family_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'family',
+        key: 'id',
+      },
+    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,

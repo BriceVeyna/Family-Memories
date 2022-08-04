@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class File extends Model {}
 
-Project.init(
+File.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -33,6 +33,13 @@ Project.init(
         key: 'id',
       },
     },
+    family_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'family',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
@@ -43,4 +50,4 @@ Project.init(
   }
 );
 
-module.exports = Project;
+module.exports = File;
