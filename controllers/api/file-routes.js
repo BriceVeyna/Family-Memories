@@ -18,7 +18,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-// get all users
+// get all file
 router.get("/", async (req, res) => {
   try {
     const fileData = await File.findAll();
