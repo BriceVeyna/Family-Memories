@@ -2,7 +2,10 @@ const {Family} = require('../models');
 
 const familyData = [
     {
-        name: 'Mitchell'
+        name: 'Besse'
+    },
+    {
+        name: 'Burnham'
     },
     {
         name: 'Veyna'
