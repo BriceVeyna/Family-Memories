@@ -19,7 +19,7 @@ Comment.init(
             },
         },
         text: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
         },
         file_id: {
             type: DataTypes.INTEGER,
