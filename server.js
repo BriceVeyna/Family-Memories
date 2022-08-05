@@ -21,6 +21,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname, '.public/index.html');
 }); 
 
+app.get('/chat', (req, res) => {
+  res.sendFile(__dirname, '.public/chat.html');
+}); 
+
 io.on('connection', (socket) => {
   console.log('a user connected');
   socket.on('disconnect', () => {
@@ -40,7 +44,7 @@ io.on('connection', (socket) => {
   });
 });
 
-
+//////
 const sess = {
   secret: 'Super secret secret',
   cookie: {},
