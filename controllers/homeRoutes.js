@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { File } = require('../models');
-const withAuth = require('../utils/auth');
+const withAuth = require('../utils/Auth');
 
 router.get('/', withAuth, async (req, res) => {
   try {
@@ -12,7 +12,7 @@ router.get('/', withAuth, async (req, res) => {
 
     res.render('homepage', {
       files,
-      logged_in: req.session.logged_in,
+      logged_in: req.session.loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -20,7 +20,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
     res.redirect('/');
     return;
   }

@@ -5,15 +5,12 @@ const withAuth = require('../../utils/Auth');
 // create new user
 router.post('/', async (req, res) => {
   try {
-    const userData = await User.create({
-        username: req.body.username,
-        password: req.body.password,
-    });
+    const userData = await User.create({...req.body,});
 
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.username = userData.username;
-      req.session.logged_in = true;
+      req.session.loggedIn = true;
 
       res.status(200).json(userData);
     });
@@ -25,7 +22,7 @@ router.post('/', async (req, res) => {
 // user login
 router.post('/login', async (req, res) => {
   try {
-    const userData = await User.findOne({ where: { username: req.body.username } });
+    const userData = await User.findOne({ where: { username: req.body.username, } });
 
     if (!userData) {
       res
@@ -34,7 +31,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = userData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
@@ -46,7 +43,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.username = userData.username;
-      req.session.logged_in = true;
+      req.session.loggedIn = true;
       
       res.json({ user: userData, message: 'You are now logged in!' });
     });

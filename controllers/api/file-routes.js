@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { File } = require("../../models");
-const withAuth = require('../../utils/Auth');
+const withAuth = require('../../utils/Auth')
 
 // create new file
 router.post("/", withAuth, async (req, res) => {
@@ -45,7 +45,7 @@ router.put("/:id", withAuth, async (req, res) => {
 
 router.delete("/:id", withAuth, async (req, res) => {
     try {
-      const fileData = await File.destroy(req.body, {
+      const fileData = await File.destroy({
         where: { id: req.params.id },
       });
       if (!fileData) {
