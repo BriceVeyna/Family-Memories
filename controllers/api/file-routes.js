@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { File } = require("../../models");
+const withAuth = require('../../utils/Auth')
 
 // create new file
 router.post("/", withAuth, async (req, res) => {
