@@ -45,7 +45,7 @@ router.put("/:id", withAuth, async (req, res) => {
 
 router.delete("/:id", withAuth, async (req, res) => {
     try {
-      const fileData = await File.destroy(req.body, {
+      const fileData = await File.destroy({
         where: { id: req.params.id },
       });
       if (!fileData) {

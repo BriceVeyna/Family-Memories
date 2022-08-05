@@ -29,7 +29,9 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const commentData = await Comment.create({
-    
+      ...req.body,
+      user_id: req.session.user_id,
+    // pull file id in new comment
     });
     res.status(200).json(commentData);
   } catch (err) {
@@ -56,7 +58,7 @@ router.put('/:id', async (req, res) => {
 // Delete a comment
 router.delete("/:id", async (req, res) => {
     try {
-      const commentData = await Comment.destroy(req.body, {
+      const commentData = await Comment.destroy({
         where: { id: req.params.id },
       });
       if (!commentData) {
