@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Family } = require("../../models");
-const withAuth = require('../../utils/Auth')
+const withAuth = require('../../utils/Auth');
 
 // get all families
 router.get("/", async (req, res) => {
@@ -16,7 +16,8 @@ router.get("/", async (req, res) => {
 router.post("/", withAuth, async (req, res) => {
   try {
     const familyData = await Family.create({
-      name: req.body.name,
+      ...req.body,
+      user_id: req.session.user_id,
     });
     res.status(200).json(familyData);
   } catch (err) {
