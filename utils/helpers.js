@@ -1,5 +1,12 @@
-Template.registerHelper("prettifyDate", function(timestamp) {
-    return new Date(timestamp).toString('MM-dd-yyyy')
-});
-
-//{{prettifyDate timestamp}} this will go in html
+module.exports = {
+    prettifyDate: function (timestamp) {
+      var curr_date = timestamp.getDate();
+      var curr_month = timestamp.getMonth();
+      var curr_year = timestamp.getFullYear();
+      result = `${curr_month}-${curr_date}-${curr_year}`
+      return result;
+    },
+  };
+  
+  //{{prettifyDate timestamp}} this will go in html
+  
