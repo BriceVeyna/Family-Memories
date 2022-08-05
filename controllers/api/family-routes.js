@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Family } = require("../../models");
+const withAuth = require('../../utils/Auth')
 
 // get all families
 router.get("/", async (req, res) => {
