@@ -27,7 +27,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Create a comment
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const commentData = await Comment.create({
       ...req.body,
@@ -41,7 +41,7 @@ router.post('/', async (req, res) => {
 });
 
 // Edit a comment
-router.put('/:id', async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
     try {
         const commentData = await Comment.update(req.body, {
             where: { id: req.params.id },
@@ -57,7 +57,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete a comment
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", withAuth, async (req, res) => {
     try {
       const commentData = await Comment.destroy({
         where: { id: req.params.id },
