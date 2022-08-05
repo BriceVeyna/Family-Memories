@@ -44,7 +44,6 @@ io.on('connection', (socket) => {
   });
 });
 
-//////
 const sess = {
   secret: 'Super secret secret',
   cookie: {},
