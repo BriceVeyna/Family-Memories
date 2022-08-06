@@ -23,17 +23,32 @@
     <div class="flex-column justify-space-around">
         <header class="display-flex justify-space-between align-center p-2">
             <h1>Family Memories</h1>
-            <nav>
-                {{#if file , dashboard }}
-                <a href="/">Home</a>
-                {{/if}}
-                {{#if file}}
-                <a href="/">Dashboard</a>
-                {{/if}}
-                <form action="/logout" method="post">
-                    <button>Log out</button>
-                </form>
-            </nav>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border border-dark">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Families
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Family 1</a>
+                        <a class="dropdown-item" href="#">Family 2</a>
+                        <a class="dropdown-item" href="#">Family 3</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
         </header>
         <main class="container container-fluid mt-5">
             {{{ body }}}
