@@ -38,10 +38,13 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Messages</a>
+                            <button class="nav-link" id="home-button" style="border: none; background-color: #f8f9fa;">Home</button>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="logout-button">Logout</a>
+                            <button class="nav-link" id="message-button" style="border: none; background-color: #f8f9fa;">Messages</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link" id="logout-button" style="border: none; background-color: #f8f9fa;">Logout</button>
                         </li>
                     </ul>
                 </div>
@@ -53,15 +56,10 @@
             {{{ body }}}
         </main>
     </div>
+    
     {{/if}}
 
-    {{#if loggedIn}}
     <script src="./js/logout.js"></script>
-    {{else}}
     <script src="./js/login.js"></script>
-    {{/if}}
-
 </body>
-
-
 </html>
