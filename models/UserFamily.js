@@ -1,11 +1,15 @@
+// Import relevant parts of sequelize library
 const { Model, DataTypes } = require('sequelize');
-
+// Import database connection
 const sequelize = require('../config/connection');
 
+// Initialize UserFamily model (table) by extending off Sequelize's Model class
 class UserFamily extends Model {}
 
+// Set up fields and rules for UserFamily through model
 UserFamily.init(
   {
+    // Define columns
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
