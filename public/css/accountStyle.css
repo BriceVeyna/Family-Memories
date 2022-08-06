@@ -1,0 +1,17 @@
+body {
+    background-image: url('../assets/accounts_background.jpg');
+    background-color: #cccccc;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+main {
+    display: flex;
+    justify-content: right;
+}
+
+.container {
+    background-color: #e2e2e2;
+    max-width: 500px;
+    margin: 250px 300px 0 0;
+}
