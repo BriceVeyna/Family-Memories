@@ -1,14 +1,21 @@
-<form>
-    <h2>Family Memories</h2>
+<form class="container border border-secondary rounded-lg p-5">
+    <div class="col text-center pb-3">
+        <h1>Family Memories</h1>
+    </div>
+    <br>
     <div class="form-group">
-        <label for="inputUsername">Username</label>
-        <input type="username" class="form-control" id="inputUsername">
+        <label for="inputUsername" class="font-weight-bold">Username:</label>
+        <input type="username" class="form-control border border-secondary" id="inputUsername">
     </div>
     <div class="form-group">
-        <label for="inputPassword">Password</label>
-        <input type="password" class="form-control" id="inputPassword">
+        <label for="inputPassword" class="font-weight-bold">Password:</label>
+        <input type="password" class="form-control border border-secondary" id="inputPassword">
     </div>
-    <button type="submit" class="btn btn-primary">Log In</button>
-    </hr>
-    <a href="/">Sign Up</a>
+    <div class="col text-center pt-3 pb-3">
+        <button type="submit" class="btn btn-primary p-2 pr-3 pl-3">Log In</button>
+    </div>
+    <hr>
+    <div class="col text-center">
+        <a href="/">Sign Up</a>
+    </div>
 </form>
