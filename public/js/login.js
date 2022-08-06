@@ -5,7 +5,7 @@ const loginFormHandler = async (event) => {
   const password = document.querySelector("#inputPassword").value.trim();
 
   if (username && password) {
-    const response = await fetch("/api/login", {
+    const response = await fetch("/api/user/login", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },
@@ -19,31 +19,30 @@ const loginFormHandler = async (event) => {
   }
 };
 
-const signupFormHandler = async (event) => {
-  event.preventDefault();
+const loginButton = document.getElementById("login-button")
+loginButton.addEventListener("click", loginFormHandler)
 
-  const username = document.querySelector("#inputUsername").value.trim();
-  const password = document.querySelector("#inputPassword").value.trim();
+// const signupFormHandler = async (event) => {
+//   event.preventDefault();
 
-  if (username && password) {
-    const response = await fetch("/api/signup", {
-      method: "POST",
-      body: JSON.stringify({ username, password }),
-      headers: { "Content-Type": "application/json" },
-    });
+//   const username = document.querySelector("#inputUsername").value.trim();
+//   const password = document.querySelector("#inputPassword").value.trim();
 
-    if (response.ok) {
-      document.location.replace("/");
-    } else {
-      alert(response.statusText);
-    }
-  }
-};
+//   if (username && password) {
+//     const response = await fetch("/api/signup", {
+//       method: "POST",
+//       body: JSON.stringify({ username, password }),
+//       headers: { "Content-Type": "application/json" },
+//     });
 
-document
-  .querySelector(".btn")
-  .addEventListener("submit", loginFormHandler);
+//     if (response.ok) {
+//       document.location.replace("/");
+//     } else {
+//       alert(response.statusText);
+//     }
+//   }
+// };
 
-document
-  .querySelector(".btn")
-  .addEventListener("submit", signupFormHandler);
+// const signupButton = document.getElementById("signup-button")
+// loginButton.addEventListener("click", signupFormHandler)
+
