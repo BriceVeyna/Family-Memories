@@ -10,7 +10,7 @@ router.get('/', withAuth, async (req, res) => {
 
     const files = fileData.map((file) => file.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render('family-dashboard', {
       files,
       logged_in: req.session.loggedIn,
     });
