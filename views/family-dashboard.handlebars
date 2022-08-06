@@ -1,50 +1,13 @@
-    <div class="flex-column justify-space-around">
-        <header class="display-flex justify-space-between p-2">
-            <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                  <h1 class="display-4">Family Memories</h1>
-                </div>
-            </div>
-
-        </header>
-        <main class="container container-fluid mt-5">
-            <div class="row row-cols-1 row-cols-md-3">
-                <div class="col mb-4">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <iframe class="card-img-top h-auto" src="https://drive.google.com/file/d/16Bg5ZQhgnLv169izVqPKjHhOm21w1mxX/preview" allow="autoplay"></iframe>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col mb-4">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <iframe src="https://drive.google.com/file/d/16Bg5ZQhgnLv169izVqPKjHhOm21w1mxX/preview" height="100%" width="auto" allow="autoplay"></iframe>
-                      <p class="card-text">This is a short card.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col mb-4">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <iframe src="https://drive.google.com/file/d/16Bg5ZQhgnLv169izVqPKjHhOm21w1mxX/preview" height="100%" width="auto" allow="autoplay"></iframe>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col mb-4">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <iframe src="https://drive.google.com/file/d/16Bg5ZQhgnLv169izVqPKjHhOm21w1mxX/preview" height="auto" width="auto" allow="autoplay"></iframe>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </main>
+<div class="row row-cols-1 row-cols-md-3">
+  {{#each files as |file|}}
+  <div class="col mb-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{file.name}}</h5>
+        <iframe class="card-img-top h-auto" src="{{file.url}}" allow="autoplay"></iframe>
+        <p class="card-text">{{file.description}}</p>
+      </div>
     </div>
+  </div>
+  {{/each}}
+</div>
