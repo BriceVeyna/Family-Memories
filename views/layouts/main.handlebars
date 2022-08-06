@@ -12,14 +12,17 @@
     <link rel="stylesheet" href="./css/style.css">
     {{/if}}
 </head>
-<body>
-    {{#if accountLayout}}
+{{#if accountLayout}}
+<body style="min-height: 100vh; background-image: url(./assets/accounts_background.jpg); background-size: cover;">
     <div class="flex-column justify-space-around">
         <main class="container container-fluid mt-5">
             {{{ body }}}
         </main>
     </div>
-    {{else}}
+    <script src="./js/login.js"></script>
+</body>
+{{else}}
+<body>
     <div class="flex-column justify-space-around">
         <header class="display-flex justify-space-between align-center p-2">
             <h1>Family Memories</h1>
@@ -54,8 +57,8 @@
             {{{ body }}}
         </main>
     </div>
-    {{/if}}
-
-    <script src="./js/login.js"></script>
+    <script src="./js/logout.js"></script>
+    <script src="./js/script.js"></script>
 </body>
+{{/if}}
 </html>
