@@ -4,6 +4,7 @@ const File = require('./File');
 const Comment = require('./Comment');
 const UserFamily = require('./UserFamily');
 const FileFamily = require('./FileFamily');
+const Message = require('./Message');
 
 
 Family.hasMany(User, {
@@ -51,4 +52,14 @@ File.belongsToMany(Family, {
     through: FileFamily
 });
 
-module.exports = { User, Family, File, Comment, FileFamily, UserFamily };
+User.hasMany(Message, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE',
+});
+
+
+Message.belongsTo(User, {
+    foreignKey: 'user_id',
+});
+
+module.exports = { User, Family, File, Comment, FileFamily, UserFamily, Message };
