@@ -13,6 +13,9 @@
       <div class="chat-container-fluid">
         <div class="message-container">
           <h2>Messages</h2>
+          {{#each messages as |message|}}
+          {{>message-details}}
+          {{/each}}
         </div>
         <div class="divide"></div>
         <div class="chat-box"><textarea id="chat-input" placeholder="Type a message"></textarea><button class="btn"

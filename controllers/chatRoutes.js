@@ -16,12 +16,30 @@ const withAuth = require('../utils/Auth');
 // }
 // });
 
-router.get('/', (req, res) => {
-    if (!req.session.loggedIn) {
-        res.redirect('/login');
-    } else {
-        res.render('chat', {loggedIn: req.session.loggedIn});
-    }
-})
+router.get('/', withAuth, async (req, res) => {
+        try {
+            const messagesData = await Message.findAll();
+            const messages = messagesData.map((message) => message.get({ plain: true }))
+
+            res.render('chat', { messages, loggedIn: req.session.loggedIn });
+        } catch (err) {
+            console.error(err);
+        }
+});
+
+// router.get('/', async (req, res) => {
+//     if (!req.session.loggedIn) {
+//         res.redirect('/login');
+//     } else {
+//         try {
+//             const messagesData = await Message.finalAll();
+//             const messages = messagesData.map((message) => message.get({ plain: true }))
+
+//             res.render('chat', {messages, loggedIn: req.session.loggedIn});
+//         } catch (err) {
+//             console.error(err);
+//         }
+//     }
+// })
 
 module.exports = router;
