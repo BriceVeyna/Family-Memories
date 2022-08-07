@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Message } = require('../../models');
-const withAuth = require('../../utils/Auth');
+const { Message } = require('../models');
+const withAuth = require('../utils/Auth');
 
 // router.get('/', async (req, res) => {
 //     try {
