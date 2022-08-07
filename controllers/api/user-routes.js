@@ -2,7 +2,31 @@ const router = require('express').Router();
 const { User } = require('../../models');
 const withAuth = require('../../utils/Auth');
 
-// create new user
+//get all users
+router.get("/", async (req, res) => {
+  try {
+    const userData = await User.findAll();
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//get user by id
+router.get('/:id', async (req, res) => {
+  try {
+      const userData = await User.findByPk(req.params.id)
+      if (!userData) {
+          res.status(404).json({ message: "No user found with that id." });
+          return;
+      }
+      res.status(200).json(userData);
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
+
+//create user
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create({...req.body,});
@@ -64,14 +88,36 @@ router.post('/logout', (req, res) => {
   }
 });
 
-// get all users
-router.get('/', async (req, res) => {
-    try{
-        const userData = await User.findAll();
-        res.status(200).json(userData);
-    } catch (err) {
-        res.status(500).json(err);
+//edit user by id
+router.put("/:id", withAuth, async (req, res) => {
+  try {
+    const userData = await User.update(req.body, {
+      where: { id: req.params.id },
+    });
+    if (!userData) {
+      res.status(400).json({ message: "No user found with this id." });
+      return;
     }
-})
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//delete user by id
+router.delete("/:id", withAuth, async (req, res) => {
+  try {
+    const userData = await User.destroy({
+      where: { id: req.params.id },
+    });
+    if (!userData) {
+      res.status(400).json({ message: "No user found with this id." });
+      return;
+    }
+    res.status(200).json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

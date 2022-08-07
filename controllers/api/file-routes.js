@@ -2,53 +2,47 @@ const router = require("express").Router();
 const { File } = require("../../models");
 const withAuth = require("../../utils/Auth");
 
-// // get all files
-// router.get("/", async (req, res) => {
-//   try {
-//     const fileData = await File.findAll();
-//     res.status(200).json(fileData);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// render new file form
+//get all files
 router.get("/", async (req, res) => {
-  if (!req.session.loggedIn) {
-    res.redirect("/login");
-  } else {
-    res.render("fileForm", { loggedIn: req.session.loggedIn });
+  try {
+    const fileData = await File.findAll();
+    res.status(200).json(fileData);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
-// render file page by id
-router.get("/:id", (req, res) => {
-  if (!req.session.loggedIn) {
-    res.redirect("/login");
-  } else {
-    res.render("file", { loggedIn: req.session.loggedIn });
+//get file by id
+router.get('/:id', async (req, res) => {
+  try {
+      const fileData = await File.findByPk(req.params.id)
+      if (!fileData) {
+          res.status(404).json({ message: "No file found with that id." });
+          return;
+      }
+      res.status(200).json(fileData);
+  } catch (err) {
+      res.status(500).json(err);
   }
 });
 
-router.post("/", withAuth, async (req, res) => {
+//create file
+router.post('/', withAuth, async (req, res) => {
   try {
     const fileData = await File.create({
       name: req.body.name,
       description: req.body.description,
       url: req.body.url,
-      user_id: req.session.user_id,
-      // family_id: req.body.family_id,
+      user_id: req.body.user_id,
+      family_id: req.body.family_id
     });
-
     res.status(200).json(fileData);
-    console.log("great");
   } catch (err) {
-    console.log("boo");
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
-// edit file
+//edit file by id
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const fileData = await File.update(req.body, {
@@ -64,7 +58,7 @@ router.put("/:id", withAuth, async (req, res) => {
   }
 });
 
-// delete file
+//delete file by id
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     const fileData = await File.destroy({
