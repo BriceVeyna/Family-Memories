@@ -28,6 +28,14 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get('/:id', (req, res) => {
+  if (!req.session.loggedIn) {
+      res.redirect("/login");
+  } else {
+      res.render("file", {loggedIn: req.session.loggedIn})
+  }
+});
+
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const fileData = await File.update(req.body, {
@@ -41,6 +49,27 @@ router.put("/:id", withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+// Create a comment
+router.post('/', withAuth, async (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect("/login");
+} else {
+    res.render("fileForm", {loggedIn: req.session.loggedIn})
+}
+
+
+  // try {
+  //   const commentData = await Comment.create({
+  //     ...req.body,
+  //     user_id: req.session.user_id,
+  //   // pull file id in new comment
+  //   });
+  //   res.status(200).json(commentData);
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
 });
 
 router.delete("/:id", withAuth, async (req, res) => {
