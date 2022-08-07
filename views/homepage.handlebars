@@ -5,7 +5,7 @@
   <div class="col mb-4">
     <div class="card">
       <div class="card-body">
-        <a href="/views/file.handlebars" class="card-title">{{file.name}}</a>
+        <button class="card-title" id="file-name">{{file.name}}</button>
         <iframe class="card-img-top h-auto" src="{{file.url}}" allow="autoplay"></iframe>
         <p class="card-text">{{file.description}}</p>
       </div>
@@ -13,5 +13,3 @@
   </div>
   {{/each}}
 </div>
-
-<script src="./js/logout.js"></script>
