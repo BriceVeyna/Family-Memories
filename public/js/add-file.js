@@ -34,21 +34,21 @@ openFileForm.addEventListener('click', addFile);
 const newFile = async (event) => {
 event.preventDefault();
 
-const fileName = document.querySelector('#inputFileName').value.trim();
-const fileDescription = document.querySelector('#inputFileDescription').value.trim();
-const fileUrl = document.querySelector('#inputFileUrl').value.trim();
+const name = document.querySelector('#inputFileName').value.trim();
+const description = document.querySelector('#inputFileDescription').value.trim();
+const url = document.querySelector('#inputFileUrl').value.trim();
 
-if (fileName && fileDescription && fileUrl) {
+if (name && description && url) {
   const response = await fetch(`/api/file`, {
     method: 'POST',
-    body: JSON.stringify({ fileName, fileDescription, fileUrl }),
+    body: JSON.stringify({ name, description, url }),
     headers: {
       'Content-Type': 'application/json',
     },
   });
 
   if (response.ok) {
-    document.location.replace('/api/file');
+    document.location.replace('/');
   } else {
     alert('Failed to create project');
   }
