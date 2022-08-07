@@ -21,7 +21,7 @@ const io = new Server(server);
 
 let onlineUsers = {};
 io.on("connection", (socket) => {
-    require('./chat.js')(io, socket, onlineUsers);
+    require('./config/socket')(io, socket, onlineUsers);
 })
 
 const sess = {
