@@ -27,7 +27,7 @@ $(document).ready(() => {
 
     socket.on('new user', (username) => {
         console.log(`${username} has joined the chat`);
-        $('.users-online').append(`<div class="user-online">${username}</div>`);
+        $('.online-users').append(`<div class="user-online">${username}</div>`);
     })
 
     socket.on('new message', (data) => {
