@@ -1,34 +1,52 @@
-// // routes to file page when file is selected
-// document.getElementById("file-name").addEventListener("click", filePage);
-// function filePage() {
-//   document.location.replace("/api/file/:id");
-// }
+// reroutes homepage to filepage 
+const filePage = async (event) => {
+  if (event.target.hasAttribute('data-id')) {
+    const id = event.target.getAttribute('data-id');
 
-// //function to create a new file
-// const newFile = async (event) => {
-//   event.preventDefault();
+    const response = await fetch(`/api/file/:${id}`, {
+      method: 'GET',
+    });
 
-//   const fileName = document.querySelector("#file-name").value.trim();
-//   const fileDescription = document
-//     .querySelector("#file-description")
-//     .value.trim();
-//   const fileUrl = document.querySelector("#file-url").value.trim();
+    if (response.ok) {
+      document.location.replace(`/api/file/:${id}`);
+    } else {
+      alert('Failed to open file.');
+    }
+  }
+};
 
-//   if (fileName && fileDescription && fileUrl) {
-//     const response = await fetch("/api/file", {
-//       //need different route?
-//       method: "POST",
-//       body: JSON.stringify({ fileName, fileDescription, fileUrl }),
-//       headers: { "Content-Type": "application/json" },
-//     });
+// button to route to file page
+const openFile = document.getElementById('file-name');
+if(openFile){
+  openFile.addEventListener('click', filePage);
+}
 
-//     if (response.ok) {
-//       document.location.replace("/api/family");
-//     } else {
-//       alert(response.statusText);
-//     }
-//   }
-// };
+// creates a new file
+const newFile = async (event) => {
+  event.preventDefault();
 
-// // button to submit file
-// document.querySelector(".file-btn").addEventListener("submit", newFile);
+  const fileName = document.querySelector('#inputFileName').value.trim();
+  const fileDescription = document.querySelector('#inputFileDescription').value.trim();
+  const fileUrl = document.querySelector('#inputFileURL').value.trim();
+
+  if (fileName && fileDescription && fileUrl) {
+    const response = await fetch(`/api/file`, {
+      method: 'POST',
+      body: JSON.stringify({ fileName, fileDescription, fileUrl }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      document.location.replace('/');
+    } else {
+      alert('Failed to create new file.');
+    }
+  }
+};
+//submit button to create a new file
+const newFileButton = document.getElementById('new-file-button');
+if(newFileButton){
+  newFileButton.addEventListener('click', newFile);
+}

@@ -5,7 +5,7 @@
   <div class="col mb-4">
     <div class="card">
       <div class="card-body">
-        <button class="card-title" id="file-name">{{file.name}}</button>
+        <a href="/api/file/{{file.id}}" data-id="{{file.id}}" id="file-name">{{file.name}}</a>
         <iframe class="card-img-top h-auto" src="{{file.url}}" allow="autoplay"></iframe>
         <p class="card-text">{{file.description}}</p>
       </div>
