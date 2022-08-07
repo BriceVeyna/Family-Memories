@@ -37,6 +37,7 @@ File.init(
     },
     family_id: {
       type: DataTypes.INTEGER,
+      allowNull: true,
       references: {
         model: 'family',
         key: 'id',

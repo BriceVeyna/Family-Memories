@@ -30,25 +30,6 @@ router.get("/:id", (req, res) => {
   }
 });
 
-// // create new file
-// router.post("/", withAuth, async (req, res) => {
-//   try {
-//     const fileData = await File.create({
-//       name: req.body.name,
-//       description: req.body.description,
-//       url: req.body.url,
-//       user_id: req.session.user_id,
-//       family_id: req.body.family_id,
-//     });
-//     res.render("/", {loggedIn: req.session.loggedIn})
-//     console.log("great")
-//     res.status(200).json(fileData);
-//   } catch (err) {
-//     console.log("boo")
-//     res.status(400).json(err);
-//   }
-// });
-
 router.post("/", withAuth, async (req, res) => {
   try {
     const fileData = await File.create({
@@ -56,7 +37,7 @@ router.post("/", withAuth, async (req, res) => {
       description: req.body.description,
       url: req.body.url,
       user_id: req.session.user_id,
-      family_id: req.body.family_id,
+      // family_id: req.body.family_id,
     });
 
     res.status(200).json(fileData);
