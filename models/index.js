@@ -52,14 +52,14 @@ File.belongsToMany(Family, {
     through: FileFamily
 });
 
-User.hasMany(Message, {
-    foreignKey: 'user_id',
-    onDelete: 'CASCADE',
-});
+// User.hasMany(Message, {
+//     foreignKey: 'user_id',
+//     onDelete: 'CASCADE',
+// });
 
 
-Message.belongsTo(User, {
-    foreignKey: 'user_id',
-});
+// Message.belongsTo(User, {
+//     foreignKey: 'user_id',
+// });
 
 module.exports = { User, Family, File, Comment, FileFamily, UserFamily, Message };

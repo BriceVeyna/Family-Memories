@@ -1,48 +1,116 @@
-#form {
-    background: rgba(0, 0, 0, 0.15);
-    padding: 0.25rem;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    height: 3rem;
-    box-sizing: border-box;
-    backdrop-filter: blur(10px);
-  }
+.username-form {
+  display: flex;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  #input {
-    border: none;
-    padding: 0 1rem;
-    flex-grow: 1;
-    border-radius: 2rem;
-    margin: 0.25rem;
-  }
+#username-input {
+  font-size: 20px;
+  padding: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+}
 
-  #input:focus {
-    outline: none;
-  }
+#join-button {
+  width: 45%;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px;
+}
 
-  #form>button {
-    background: #333;
-    border: none;
-    padding: 0 1rem;
-    margin: 0.25rem;
-    border-radius: 3px;
-    outline: none;
-    color: #fff;
-  }
+.chat-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
 
-  #messages {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
+.chat-container-fluid {
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+}
 
-  #messages>li {
-    padding: 0.5rem 1rem;
-  }
+.online-users-cont {
+  width: 20%;
+  margin-left: -8px;
+  margin-top: -8px;
+  margin-right: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 750px;
+  background-color: #636363cb;
+  color: white;
+}
 
-  #messages>li:nth-child(odd) {
-    background: #efefef;
-  }
+.online-users {
+  margin-left: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow-y: auto;
+  flex: 4;
+}
+
+.user-online {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.divide {
+  border: 0.5px solid rgb(0, 0, 0);
+  margin-bottom: 10px;
+}
+
+.chat-box {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+label {
+  display: block;
+}
+
+#chat-input {
+  width: 70%;
+  display: inline;
+}
+
+#send-button {
+  width: 10%;
+  display: inline;
+}
+
+.message-container {
+  display: flex;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  flex-direction: column;
+}
+
+.message {
+  margin-bottom: 5px;
+}
+
+.message-user {
+  display: inline;
+  color: red;
+  font-weight: bold;
+}
+
+.message-text {
+  display: inline;
+}
+
+.chat {
+  display: none;
+  flex-direction: row;
+  width: 100%;
+}

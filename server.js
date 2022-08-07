@@ -11,7 +11,7 @@ const helpers = require('./utils/helpers');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const { Message, User } = require('./models');
+app.use('/public', express.static('public'));
 
 /////
 const http = require('http');
@@ -19,45 +19,10 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
-// app.get('/', (req, res) => {
-//   res.sendFile(__dirname, '.public/index.html');
-// });
-
-// app.get('/chat', (req, res) => {
-//   res.sendFile(__dirname, '.public/chat.html');
-// }); 
-
-io.on('connection', (socket) => {
-  console.log('a user connected');
-  socket.on('disconnect', () => {
-    console.log('a user disconnected');
-  });
-});
-
-// io.on('connection', (socket) => {
-//   socket.on('chat message', (msg) => {
-//     console.log('message: ' + msg);
-//   });
-// });
-
-io.on('connection', (socket) => {
-  socket.on('chat message', (msg) => {
-    io.emit('chat message', msg);
-    console.log('message: ' + msg);
-  });
-});
-
-io.on('connection', (socket) => {
-  socket.on('chat message', (msg) => {
-    console.log(`your message is ${msg}`);
-    Message.create({
-      text: msg,
-      // how to pass in logged-in user info?
-      // username: msg.username,
-      // username: req.session.username,
-    })
-  });
-});
+let onlineUsers = {};
+io.on("connection", (socket) => {
+    require('./chat.js')(io, socket, onlineUsers);
+})
 
 const sess = {
   secret: 'Super secret secret',
@@ -83,5 +48,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  server.listen(PORT, () => console.log('Now listening'));
+  server.listen(PORT, () => console.log(`Now listening on PORT: ${PORT}`));
 });

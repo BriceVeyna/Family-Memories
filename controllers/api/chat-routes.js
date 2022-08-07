@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
         const messageData = Message.findAll();
         const messages = messageData.map((message) => message.get({ plain: true }));
 
-        res.render('chat', {
+        res.render('chat/messages', {
             messages,
             // loggedIn: req.session.loggedIn,
         });
