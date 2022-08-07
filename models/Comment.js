@@ -1,15 +1,10 @@
-// Import relevant parts of sequelize library
-const { Model, DataTypes, Sequelize } = require('sequelize');
-// Import database connection
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// Initialize Comment model (table) by extending off Sequelize's Model class
-class Comment extends Model {}
+class Comment extends Model { }
 
-// Set up fields and rules for Comment model
 Comment.init(
     {
-        // Define columns
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
