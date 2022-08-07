@@ -4,6 +4,8 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+// const axios = require('axios');
+
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
@@ -21,7 +23,7 @@ const io = new Server(server);
 
 let onlineUsers = {};
 io.on("connection", (socket) => {
-    require('./chat.js')(io, socket, onlineUsers);
+    require('./config/socket')(io, socket, onlineUsers);
 })
 
 const sess = {

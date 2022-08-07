@@ -53,8 +53,7 @@ File.belongsToMany(Family, {
 });
 
 // User.hasMany(Message, {
-//     foreignKey: 'user_id',
-//     onDelete: 'CASCADE',
+//     through: 
 // });
 
 

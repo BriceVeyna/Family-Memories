@@ -2,6 +2,15 @@ const router = require('express').Router();
 const { Message } = require('../models');
 const withAuth = require('../utils/Auth');
 
+router.get('/messages', async (req, res) => {
+    try {
+        const messageData = Message.findAll();
+        res.status(200).json(messageData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
+
 // router.get('/', async (req, res) => {
 //     try {
 //         const messageData = Message.findAll();

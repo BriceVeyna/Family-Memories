@@ -74,4 +74,18 @@ router.get('/', async (req, res) => {
     }
 })
 
+// chat get user by id
+
+// router.get('/messages/username', async (req, res) => {
+//   try {
+//       const userData = await User.findOne({
+//           where: {
+//               username : req.session.username,
+//           },
+//       });
+//       res.status(200).json(userData);
+//   } catch (err) {
+//       res.status(500).json(err);
+//   }
+// })
 module.exports = router;
