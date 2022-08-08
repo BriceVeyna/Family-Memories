@@ -1,27 +1,32 @@
-<form class="username-form">
+<!-- Input username form page -->
+<form class="username-form mt-5">
     <input id="username-input" placeholder="Enter Your Username"></input>
     <button id="join-button">Join Chat</button>
-  </form>
+</form>
 
-  <div class="chat">
-    <div class="online-users-cont">
-      <h1>Family Memories Chat</h1>
-      <h2>Online Users</h2>
-      <div class="online-users"></div>
-    </div>
-    <div class="chat-container">
-      <div class="chat-container-fluid">
-        <div class="message-container">
-          <h2>Messages</h2>
-          {{#each messages as |message|}}
-          {{>message-details}}
-          {{/each}}
-        </div>
-        <div class="divide"></div>
-        <div class="chat-box"><textarea id="chat-input" placeholder="Type a message"></textarea><button class="btn"
-            id="send-button">Send</button></div>
+<!-- Chat page -->
+<div class="chat">
+  <div class="online-users-cont pt-5 pl-3">
+    <h1>Family Memories Chat</h1>
+    <h2>Online Users</h2>
+    <div class="online-users"></div>
+  </div>
+  <div class="chat-container mt-5">
+    <div class="chat-container-fluid">
+      <div class="message-container">
+        <h2>Messages</h2>
+        {{#each messages as |message|}}
+        {{>message-details}}
+        {{/each}}
+      </div>
+      <div class="divide"></div>
+      <div class="chat-box">
+        <textarea id="chat-input" placeholder="Type a message"></textarea>
+        <button class="btn" id="send-button">Send</button>
       </div>
     </div>
   </div>
-    <script src="socket.io/socket.io.js"></script>
-    <script src = '/js/messages.js'></script>
+</div>
+
+<script src="socket.io/socket.io.js"></script>
+<script src = '/js/messages.js'></script>
