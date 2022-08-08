@@ -42,7 +42,7 @@ $(document).ready(() => {
 
     socket.on('get online users', (onlineUsers) => {
         for (username in onlineUsers) {
-            $('.users-online').append(`<div class="user-online">${username}</div>`);
+            $('.online-users').append(`<div class="user-online">${username}</div>`);
         }
     })
 
