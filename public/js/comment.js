@@ -17,6 +17,7 @@ const newComment = async (event) => {
 
       if (response.ok) {
         document.location.replace(`/file/${id}`);
+        console.log(commentText + 'testing')
       } else {
         alert(response.statusText);
       }
