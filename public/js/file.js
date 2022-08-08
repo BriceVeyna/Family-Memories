@@ -46,7 +46,8 @@ const newFile = async (event) => {
   
   const name = document.querySelector('#inputFileName').value.trim();
   const description = document.querySelector('#inputFileDescription').value.trim();
-  const url = document.querySelector('#inputFileUrl').value.trim();
+  const inputURL = document.querySelector('#inputFileUrl').value.trim();
+  const url = inputURL.split('/').slice(0, -1).join('/')+'/preview';
   
   if (name && description && url) {
     const response = await fetch(`/file`, {
