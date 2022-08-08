@@ -21,25 +21,22 @@ router.post("/", withAuth, async (req, res) => {
     });
 
     res.status(200).json(fileData);
-    console.log("great");
   } catch (err) {
-    console.log("boo");
     res.status(400).json(err);
   }
 });
 
-router.post("/", withAuth, async (req, res) => {
+router.post("/:id", withAuth, async (req, res) => {
+  console.log("post working", req.body)
   try {
     const commentData = await Comment.create({
       user_id: req.session.user_id,
       text: req.body.text,
-      file_id: req.file.file_id
+      file_id: req.params.id,
     });
 
     res.status(200).json(commentData);
-    console.log("great");
   } catch (err) {
-    console.log("boo");
     res.status(400).json(err);
   }
 });
@@ -49,7 +46,16 @@ router.get("/:id", async (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect("/login");
   } else {
-    res.render("file", { loggedIn: req.session.loggedIn });
+    File.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [Comment],
+    }).then((fileInfo) => {
+      const cleanFileInfo = fileInfo.get({ plain: true });
+      console.log(cleanFileInfo.comments[0].text);
+      res.render("file", { loggedIn: req.session.loggedIn, cleanFileInfo });
+    });
   }
 });
 
