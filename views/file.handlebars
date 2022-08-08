@@ -1,42 +1,47 @@
-<div class="container w-50">
+<div class="container w-75">
 
-    {{log "here I am to save the day"}}
-                {{log cleanFileInfo}}
+    {{log cleanFileInfo}}
 
     <!-- Embedded video card -->
     <div class="card">
         <div class="card-title">{{cleanFileInfo.name}}</div>
         <div class="embed-responsive embed-responsive-16by9">
-            <iframe src="{{cleanFileInfo.url}}" width="640" height="480" allow="autoplay"></iframe>
-            <p>{{cleanFileInfo.description}}</p>
+            <iframe src="{{cleanFileInfo.url}}" allow="autoplay"></iframe>
         </div>
+        <p>{{cleanFileInfo.description}}</p>
     </div>
 
     <br>
 
     <h3 class="comments-title text-center">Comments</h3>
-{{#each cleanFileInfo.comments as |comment| }}
-    <!-- Existing file comments -->
-    <div class="be-comment">
-        <div class="be-comment-content">
-            <span style="display: inline-block; width: 49%; margin-bottom: 15px;">
-                <h5>User Id: {{comment.user_id}}</h5>
-            </span>
-            <span
-                style="text-align: right; font-size: 11px; color: #b4b7c1; display: inline-block; width: 49%; margin-bottom: 15px;">
-                <i class="fa fa-clock-o"></i>
-                {{comment.createdAt}}
-            </span>
-            <p
-                style="font-size: 13px; line-height: 18px; color: #7a8192; display: block; background: #f6f6f7; border: 1px solid #edeff2; padding: 15px 20px 20px 20px;">
-                {{comment.text}}
-            </p>
+
+    <hr>
+
+    {{#each cleanFileInfo.comments as |comment| }}
+        <!-- Existing file comments -->
+        <div class="be-comment">
+            <div class="be-comment-content" style="display: block; background: #f6f6f7; border: 1px solid #edeff2; padding: 15px 20px 20px 20px;">
+                <span style="display: inline-block; width: 49%; margin-bottom: 15px;">
+                    <h5>User Id: {{comment.user_id}}</h5>
+                </span>
+                <span
+                    style="text-align: right; font-size: 11px; color: #b4b7c1; display: inline-block; width: 49%; margin-bottom: 15px;">
+                    <i class="fa fa-clock-o"></i>
+                    {{comment.createdAt}}
+                </span>
+                <p
+                    style="font-size: 13px; line-height: 18px; color: #7a8192; display: block;">
+                    {{comment.text}}
+                </p>
+            </div>
         </div>
-    </div>
-{{/each}}
+    {{/each}}
+
+    <hr>
+
     <!-- New file comment submission form -->
     <form>
-        <div class="form-group">
+        <div class="form-group mt-3">
             <label for="inputComment">Leave a Comment!</label>
             <input type="text" class="form-control" placeholder="Message" id="comment-text" data-id="{{cleanFileInfo.id}}">
         </div>
