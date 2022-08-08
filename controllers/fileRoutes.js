@@ -27,7 +27,7 @@ router.post("/", withAuth, async (req, res) => {
 });
 
 router.post("/:id", withAuth, async (req, res) => {
-  console.log("post working", req.body)
+  // console.log("post working", req.body)
   try {
     const commentData = await Comment.create({
       user_id: req.session.user_id,
@@ -53,7 +53,7 @@ router.get("/:id", async (req, res) => {
       include: [Comment],
     }).then((fileInfo) => {
       const cleanFileInfo = fileInfo.get({ plain: true });
-      console.log(cleanFileInfo.comments[0].text);
+      // console.log(cleanFileInfo.comments[0].text);
       res.render("file", { loggedIn: req.session.loggedIn, cleanFileInfo });
     });
   }
