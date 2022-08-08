@@ -4,11 +4,13 @@
 
     <!-- Embedded video card -->
     <div class="card">
-        <div class="card-title">{{cleanFileInfo.name}}</div>
+        <div class="card-title mt-3 pl-3">
+            <h3>{{cleanFileInfo.name}}</h3>
+        </div>
         <div class="embed-responsive embed-responsive-16by9">
             <iframe src="{{cleanFileInfo.url}}" allow="autoplay"></iframe>
         </div>
-        <p>{{cleanFileInfo.description}}</p>
+        <p class="p-3">{{cleanFileInfo.description}}</p>
     </div>
 
     <br>
@@ -19,7 +21,7 @@
 
     {{#each cleanFileInfo.comments as |comment| }}
         <!-- Existing file comments -->
-        <div class="be-comment">
+        <div class="be-comment mb-3">
             <div class="be-comment-content" style="display: block; background: #f6f6f7; border: 1px solid #edeff2; padding: 15px 20px 20px 20px;">
                 <span style="display: inline-block; width: 49%; margin-bottom: 15px;">
                     <h5>User Id: {{comment.user_id}}</h5>
