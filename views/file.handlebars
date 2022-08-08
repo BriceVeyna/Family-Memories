@@ -1,7 +1,7 @@
 <div class="container w-50">
 
-    {{log "here I am to save the day"}}
-                {{log cleanFileInfo}}
+    {{log "handlebars console log"}}
+    {{log cleanFileInfo}}
 
     <!-- Embedded video card -->
     <div class="card">
@@ -15,7 +15,7 @@
     <br>
 
     <h3 class="comments-title text-center">Comments</h3>
-{{#each cleanFileInfo.comments as |comment| }}
+    {{#each cleanFileInfo.comments as |comment| }}
     <!-- Existing file comments -->
     <div class="be-comment">
         <div class="be-comment-content">
@@ -33,14 +33,14 @@
             </p>
         </div>
     </div>
-{{/each}}
+    {{/each}}
     <!-- New file comment submission form -->
     <form>
         <div class="form-group">
             <label for="inputComment">Leave a Comment!</label>
-            <input type="text" class="form-control" placeholder="Message" id="comment-text" data-id="{{cleanFileInfo.id}}">
+            <input type="text" class="form-control" placeholder="Message" id="comment-text">
         </div>
-        <button type="submit" class="btn btn-primary" id="comment-button">Submit</button>
+        <button type="submit" class="btn btn-primary" id="comment-button" data-id="{{cleanFileInfo.id}}">Submit</button>
     </form>
 
     <br>
