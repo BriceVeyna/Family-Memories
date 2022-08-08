@@ -6,7 +6,9 @@ module.exports = {
       result = `${curr_month}-${curr_date}-${curr_year}`
       return result;
     },
+
+    log: function (something) {
+      console.log(something);
+    },
   };
-  
-  //{{prettifyDate timestamp}} this will go in html
   

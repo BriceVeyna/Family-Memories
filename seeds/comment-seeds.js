@@ -31,26 +31,6 @@ const commentData = [
         text: 'That looks like maybe Ken and Joe in the fog.',
         file_id: 6
     },
-    {
-        user_id: 2,
-        text: "That's Chelsea, Chelsea Rose, and Zack.",
-        file_id: 7
-    },
-    {
-        user_id: 2,
-        text: "That's mom and Chelsea.",
-        file_id: 8
-    },
-    {
-        user_id: 2,
-        text: "That's grandma Rose.",
-        file_id: 9
-    },
-    {
-        user_id: 3,
-        text: "Phil's file.",
-        file_id: 10
-    },
 ];
 
 const seedCommentData = () => Comment.bulkCreate(commentData);
