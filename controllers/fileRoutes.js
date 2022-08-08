@@ -53,7 +53,7 @@ router.get("/:id", async (req, res) => {
       include: [Comment],
     }).then((fileInfo) => {
       const cleanFileInfo = fileInfo.get({ plain: true });
-      console.log(cleanFileInfo.comments[0].text);
+      // console.log(cleanFileInfo.comments[0].text);
       res.render("file", { loggedIn: req.session.loggedIn, cleanFileInfo });
     });
   }
