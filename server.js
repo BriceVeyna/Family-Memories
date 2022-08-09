@@ -19,9 +19,12 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
-let onlineUsers = {};
+// create users object to use as Dictionary
+let users = {};
+// on client socket connection
 io.on("connection", (socket) => {
-  require("./config/socket")(io, socket, onlineUsers);
+  // require socket.js; pass in io, socket, users
+  require("./config/socket")(io, socket, users);
 });
 
 const sess = {
