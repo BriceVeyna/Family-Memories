@@ -3,7 +3,7 @@ const newComment = async (event) => {
   event.preventDefault();
 
   const commentText = document.querySelector("#comment-text").value.trim();
-  console.log(commentText)
+  // console.log(commentText)
 
   if (event.target.hasAttribute("data-id")) {
     const id = event.target.getAttribute("data-id");
@@ -17,7 +17,7 @@ const newComment = async (event) => {
 
       if (response.ok) {
         document.location.replace(`/file/${id}`);
-        console.log(commentText + 'testing')
+        // console.log(commentText + 'testing')
       } else {
         alert(response.statusText);
       }
