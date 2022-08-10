@@ -49,7 +49,7 @@ so I know that my family's content is secure.
 ```
 <img src="./public/assets/server-side-login.png" width="400" /><img src="./public/assets/login-js.png" width="400" /><br>
 The image above on the left is what is happening on the server side. This checks to see if the user is logged using req.session.loggedIn. If they are not logged in, then it will render the /login route from the Handlebars pages. The image on the right is showing the client side javascript and how the user input is gathered in the fetch request. You can see the login and signup buttons in action below. <br>
-![login-gif](./public/assets/login%3Alogout%3Asignup.gif)<br>
+![login-gif](./public/assets/login.gif)<br>
 
 ```
 As a user, I want a homepage...
@@ -63,7 +63,7 @@ On the server side, there is an async function with a try/catch in order to get 
 As a user, I want a page where I can view an individual file...
 so that I can read and add comments.
 ```
-![add-comment](./public/assets/addcomment.gif)<br>
+![add-comment](./public/assets/add-comment.gif)<br>
 Below you can see how the comments are created on the server side. The comments are created using a post route in which the variable commentData is declared and takes in the information from the comment model. This includes the user id, text, and file id. <br>
 <img src="./public/assets/create-comment.png" width="400" />
 
@@ -103,7 +103,7 @@ After getting the route, it produced this json content. The name, description, a
 <img src="./public/assets/file-json.png" width="500" />
 
 This was another route in which we created a comment using a post route.<br>
-![Insomnia File Test](/public/assets/commentpost.gif)
+![Insomnia File Test](/public/assets/comment-post.gif)
 
 ---
 ## References
