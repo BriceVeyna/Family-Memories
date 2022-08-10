@@ -2,7 +2,7 @@
 This application is a family historical archiving tool to share and manage videos, images, and documents.
 
 ## Description
-This project creates a full-stack application that allows users to share videos, photos, and documents with their family for the purpose of historical archiving. File links are uploaded frome Google Drive. 
+This project creates a full-stack application that allows users to share videos, photos, and documents with their family for the purpose of historical archiving. The site contains login, sign up, home, file view, new file, and messaging pages. The homepage contains all your family's stored files in one location. File view allows you to view a single file, it's associated comments, as well as leave new comments. The new file page allows you to upload links from Google Drive, which is used as the site's remote file storage system. The messaging page allows you to view everyone else in your family that is on the chat and to send group messages.
 
 ### Deployed Link
 [Family-Memories](https://lit-cliffs-32521.herokuapp.com/)
