@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    justify-content: right;
+}
+
+.container {
+    max-width: 500px;
+    margin: 250px 300px 0 0;
+}
+
+form {
+    background-color: #e2e2e2;
+}

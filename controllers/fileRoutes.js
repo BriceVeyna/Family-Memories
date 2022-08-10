@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { File, Comment } = require("../models");
 const withAuth = require("../utils/Auth");
 
-// render new file form
+// Render new file form
 router.get("/", async (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect("/login");
@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Create new file
 router.post("/", withAuth, async (req, res) => {
   try {
     const fileData = await File.create({
@@ -26,6 +27,7 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+// Create new comment by file id
 router.post("/:id", withAuth, async (req, res) => {
   // console.log("post working", req.body)
   try {
@@ -41,7 +43,7 @@ router.post("/:id", withAuth, async (req, res) => {
   }
 });
 
-// render file by id
+// Render file by id
 router.get("/:id", async (req, res) => {
   if (!req.session.loggedIn) {
     res.redirect("/login");
