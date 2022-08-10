@@ -66,7 +66,16 @@ In summary, the client socket sends an event tag and the message data to the ser
 
 ---
 ## Tests
-All routes are tested in Insomnia.
+These routes were tested in insomnia. 
+
+Below, you can see one of the routes we tested which was /api/file/:id.<br>
+![Insomnia File Test](/public/assets/getfilebyid.gif)
+
+After getting the route, it produced this json content. The name, description, and url from the json content is what is rendered on each of the file pages. The url is put into an embedded link so the videos are displayed.<br>
+<img src="./public/assets/file-json.png" width="500" />
+
+This was another route in which we created a comment using a post route.<br>
+![Insomnia File Test](/public/assets/commentpost.gif)
 
 ---
 ## References
