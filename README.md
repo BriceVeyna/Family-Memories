@@ -43,8 +43,36 @@ When the user is ready to leave the site, the user can click the 'Logout' button
 ---
 ## Features
 
+```
+As a user, I want to see a login/signup form...
+so I know that my family's content is secure.
+```
+<img src="./public/assets/server-side-login.png" width="400" /><img src="./public/assets/login-js.png" width="400" /><br>
+The image above on the left is what is happening on the server side. This checks to see if the user is logged using req.session.loggedIn. If they are not logged in, then it will render the /login route from the Handlebars pages. The image on the right is showing the client side javascript and how the user input is gathered in the fetch request. You can see the login and signup buttons in action below. <br>
+![login-gif](./public/assets/login%3Alogout%3Asignup.gif)<br>
 
+```
+As a user, I want a homepage...
+so that I can see all the uploaded files from my family in one location.
+```
+<img src="./public/assets/homepage.png" width="400" />
+<img src="./public/assets/homepage-handlebars.png" width="400" /><br>
+On the server side, there is an async function with a try/catch in order to get some information. First, the fileData variable is finding all the files and ordering them in ascending order. From there, the server is mapping through all of hte files and rendering them on the homepage. The picture on the right is what is happening on the front end using handlebars. There is a div that renders the files as they are added using the each method and grabbing the file id, name, url, and description.
 
+```
+As a user, I want a page where I can view an individual file...
+so that I can read and add comments.
+```
+![add-comment](./public/assets/addcomment.gif)<br>
+Below you can see how the comments are created on the server side. The comments are created using a post route in which the variable commentData is declared and takes in the information from the comment model. This includes the user id, text, and file id. <br>
+<img src="./public/assets/create-comment.png" width="400" />
+
+```
+As a user, I want  a page with a form...
+so that I can submit a new file.
+```
+<img src="./public/assets/create-file.png" width="400" /><br>
+When the Add File button is clicked on the site, it renders the fileForm.handlebars page. On that page, the user can input the name of the file, description, and url. This is a server side image of what is happening on the /file route which creates a new file.
 
 ```
 AS A family member
@@ -66,7 +94,16 @@ In summary, the client socket sends an event tag and the message data to the ser
 
 ---
 ## Tests
-All routes are tested in Insomnia.
+These routes were tested in insomnia. 
+
+Below, you can see one of the routes we tested which was /api/file/:id.<br>
+![Insomnia File Test](/public/assets/getfilebyid.gif)
+
+After getting the route, it produced this json content. The name, description, and url from the json content is what is rendered on each of the file pages. The url is put into an embedded link so the videos are displayed.<br>
+<img src="./public/assets/file-json.png" width="500" />
+
+This was another route in which we created a comment using a post route.<br>
+![Insomnia File Test](/public/assets/commentpost.gif)
 
 ---
 ## References
