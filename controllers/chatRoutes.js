@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Message } = require('../models');
 const withAuth = require('../utils/Auth');
 
+// Render all messages
 router.get('/', withAuth, async (req, res) => {
         try {
             const messagesData = await Message.findAll();
