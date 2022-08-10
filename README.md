@@ -21,6 +21,17 @@ This project creates a full-stack application that allows users to share videos,
 
 ## Usage
 
+Upon visiting the app, if the user is not logged in, the user is presented with a login screen. If the user already has a registered account, the user can enter their username and password to login. If the user does not have a registered account, the user can click the 'signup' button to be redirected to the signup page. 
+
+After logging in the user is redirected to the home page, where the user is presented with cards containing the title, thumbnail,, and description of each file in the database. The user can click a thumbnail to play the video, or can click the title to be brought to the file page. Here, the user can view the title, watch the video, read the description of the video, and read and leave comments about the video.
+
+If the user clicks the 'Add File' button in the navigation bar, the user is redirected to a form. The user can enter a file name, file description, and a Google Drive link to the file and submit the form. The user will then be brought back to the homepage where the new file can be seen at the end of the file cards.
+
+If the user clicks the 'Messages' button in the navigation bar, the user is redirected to the chat page. THe user is prompted to enter their username and click 'Join Chat'. Once in the chat, the user can read old messages, see other online users, and send new messages.
+
+When the user is ready to leave the site, the user can click the 'Logout' button in the navigation bar and will be returned to the login page.
+
+![usageGIF](./public/assets/usage.gif)
 
 ## Features
 
