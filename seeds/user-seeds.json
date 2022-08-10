@@ -1,17 +1,19 @@
 [
     {
-        "family_id": 3,
+        "family_id": 2,
         "username": "Brice",
         "password": "password"
     },
     {
-        "family_id": 2,
         "username": "Chelsea",
         "password": "password"
     },
     {
-        "family_id": 1,
         "username": "Phil",
+        "password": "password"
+    },
+    {
+        "username": "guest",
         "password": "password"
     }
 ]
